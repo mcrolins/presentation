@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Superstore Sales Dashboard — Mac Rolins</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.3.0/dist/chart.umd.min.js"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Superstore Dashboard</a>
+      <div class="ms-auto">
+        <button id="download-csv" class="btn btn-outline-primary btn-sm me-2">Download CSV</button>
+        <a class="btn btn-primary btn-sm" href="#">View Full Report</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-5">
+
+    <!-- KPIs -->
+    <div class="row g-3 mb-4">
+      <div class="col-md-3">
+        <div class="card p-3 shadow-sm">
+          <small class="text-muted">Total Revenue (sample)</small>
+          <h4 id="kpi-revenue" class="mt-2">—</h4>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 shadow-sm">
+          <small class="text-muted">Top Product</small>
+          <h5 id="kpi-top-product" class="mt-2">—</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 shadow-sm">
+          <small class="text-muted">Peak Month</small>
+          <h5 id="kpi-peak-month" class="mt-2">—</h5>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card p-3 shadow-sm">
+          <small class="text-muted">Top Weekday</small>
+          <h5 id="kpi-top-weekday" class="mt-2">—</h5>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts row -->
+    <div class="row gy-4">
+
+      <div class="col-lg-8">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Monthly Sales (Seasonality)</h5>
+            <canvas id="monthlyChart" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4">
+        <div class="card shadow-sm mb-4">
+          <div class="card-body">
+            <h6 class="card-title">Sales by Weekday</h6>
+            <canvas id="weekdayChart" height="200"></canvas>
+          </div>
+        </div>
+
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h6 class="card-title mb-3">Top 10 Products</h6>
+            <div class="table-responsive">
+              <table class="table table-sm table-borderless" id="topProductsTable">
+                <thead>
+                  <tr><th>Product</th><th class="text-end">Sales (USD)</th></tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+            <a class="btn btn-outline-secondary btn-sm" id="show-insights">Show Insights</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Insights & Recommendations -->
+    <section class="mt-4">
+      <div id="insights" class="card p-3 shadow-sm d-none">
+        <h5>Insights & Recommendations</h5>
+        <ul id="insights-list">
+          <!-- populated by JS -->
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-light py-4 mt-5">
+    <div class="container text-center text-muted small">
+      © 2025 Mac Rolins — Superstore Sales Analysis
+    </div>
+  </footer>
+
+  <!-- Your Dashboard JS -->
+  <script src="dashboard.js"></script>
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
